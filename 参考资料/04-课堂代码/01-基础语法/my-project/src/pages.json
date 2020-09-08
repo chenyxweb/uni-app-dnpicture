@@ -1,0 +1,47 @@
+{
+	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+		{
+			"path": "pages/index6/index",
+			"style": {
+				"navigationBarTitleText": "组件-插槽"
+			}
+		},
+		{
+			"path": "pages/index5/index",
+			"style": {
+				"navigationBarTitleText": "组件"
+			}
+		},
+		{
+			"path": "pages/index4/index",
+			"style": {
+				"navigationBarTitleText": "事件"
+			}
+		},
+		{
+			"path": "pages/index3/index",
+			"style": {
+				"navigationBarTitleText": "数据展示"
+			}
+		},
+		{
+			"path": "pages/index2/index",
+			"style": {
+				"navigationBarTitleText": "2"
+			}
+		},
+		{
+			"path": "pages/index/index",
+			"style": {
+				"navigationBarTitleText": "uni-app"
+			}
+		}
+	
+	],
+	"globalStyle": {
+		"navigationBarTextStyle": "black",
+		"navigationBarTitleText": "uni-app",
+		"navigationBarBackgroundColor": "#F8F8F8",
+		"backgroundColor": "#F8F8F8"
+	}
+}
