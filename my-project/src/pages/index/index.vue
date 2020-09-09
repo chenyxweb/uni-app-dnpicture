@@ -1,49 +1,62 @@
 <template>
-	<view class="content">
-		<image class="logo" src="/static/logo.png"></image>
-		<view>
-			<text class="title">{{title}}</text>
-		</view>
-	</view>
+  <view class="content">
+    <!-- 数据展示 -->
+    <text :data-title="msg">{{msg}}</text>
+    <!-- 遍历 -->
+    <text
+      v-for="(item,index) in list"
+      :key="item.id"
+    >{{index}} -- {{item.name}}</text>
+    <!-- 条件渲染 -->
+    <view v-if="true">123</view>
+    <view v-else>456</view>
+    <view v-show="false">456</view>
+    <!-- 计算属性 -->
+    <view>{{name}}</view>
+
+    <!-- 事件 -->
+    <button
+      data-index="0"
+      @click="handleClick(1,$event)"
+    >按钮1</button>
+    <button
+      data-index="1"
+      @click="handleClick(2,$event)"
+    >按钮2</button>
+  </view>
 </template>
 
 <script>
-	export default {
-		data() {
-			return {
-				title: 'Hello'
-			}
-		},
-		onLoad() {
+export default {
+  data() {
+    return {
+      msg: 'Hello uin-app',
+      list: [
+        { id: 1, name: 'zs' },
+        { id: 2, name: 'ww' },
+        { id: 3, name: 'ls' },
+      ],
+      firstName: 'chen',
+      lastName: 'YX'
+    }
+  },
+  onLoad(query) {
 
-		},
-		methods: {
-
-		}
-	}
+  },
+  methods: {
+    handleClick(val, e) {
+      console.log('click', val, e)
+      // 访问标签绑定数据
+      console.log(e.currentTarget.dataset.index)
+    }
+  },
+  computed: {
+    name() {
+      return this.firstName + this.lastName
+    }
+  }
+}
 </script>
 
-<style>
-	.content {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		justify-content: center;
-	}
-
-	.logo {
-		height: 200rpx;
-		width: 200rpx;
-		margin: 200rpx auto 50rpx auto;
-	}
-
-	.text-area {
-		display: flex;
-		justify-content: center;
-	}
-
-	.title {
-		font-size: 36rpx;
-		color: #8f8f94;
-	}
+<style lang="scss">
 </style>
