@@ -186,3 +186,13 @@ updated // 由于数据更改导致的虚拟 DOM 重新渲染和打补丁，在�
 
 ## 2 项目-懂你找图
 
+### 2.1创建项目
+
+```
+vue create -p dcloudio/uni-preset-vue dnpicture
+
+yarn add node-sass sass-loader
+```
+
+
+
