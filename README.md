@@ -37,8 +37,12 @@ vh	屏幕高度度-100vh
 - sass
 
 ```
-// 安装
+// 第一步:安装
 yarn add node-sass sass-loader
+
+// 第二步
+<style lang="scss">
+</style>
 ```
 
 
@@ -110,9 +114,75 @@ export default{
 
 ### 组件
 
-### 生命周期
+- 创建组件
+- 组件传参
+- 全局共享数据
 
+```
+// 1.通过vue的原型共享数据
+Vue.prototype.baseURL='http://www.baidu.com' // 定义
+this.baseURL // 组件中访问
 
+// 2.通过globalData
+// App.vue 中定义 
+export default {
+    onLaunch: function() {
+        console.log('App Launch')
+    },
+    onShow: function() {
+        console.log('App Show')
+    },
+    onHide: function() {
+        console.log('App Hide')
+},
+globalData:{
+  base:'www.base.com'
+}
+}
+
+getApp().globalData.base // 访问,  函数用于获取当前应用实例可读可写
+```
+
+- 组件插槽
+
+### [生命周期](https://uniapp.dcloud.io/collocation/frame/lifecycle)
+
+#### 应用生命周期
+
+```
+// App.vue
+
+<script>  
+    export default {  
+        onLaunch: function() {  
+            console.log('App Launch，app启动')  
+        },  
+        onShow: function() {  
+            console.log('App Show，app展现在前台')  
+        },  
+        onHide: function() {  
+            console.log('App Hide，app不再展现在前台')  
+        }  
+    }  
+</script>
+```
+
+#### 页面生命周期
+
+```
+onLoad // 监听页面加载
+onShow // 监听页面显示
+onReady // 监听页面初次渲染完成
+onPullDownRefresh // 监听用户下拉动作，一般用于下拉刷新
+// ...
+```
+
+#### 组件生命周期
+
+```
+mounted // 挂载到实例上去之后调用
+updated // 由于数据更改导致的虚拟 DOM 重新渲染和打补丁，在这之后会调用该钩子
+```
 
 ## 2 项目-懂你找图
 

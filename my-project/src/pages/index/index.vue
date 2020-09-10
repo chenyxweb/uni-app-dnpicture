@@ -54,6 +54,10 @@ export default {
     name() {
       return this.firstName + this.lastName
     }
+  },
+  mounted(){
+    console.log(this.baseURL)
+    console.log(getApp().globalData.base)
   }
 }
 </script>
