@@ -194,5 +194,11 @@ vue create -p dcloudio/uni-preset-vue dnpicture
 yarn add node-sass sass-loader
 ```
 
+#### 2.2创建页面
 
+![image-20200910195945532](.\images\image-20200910195945532.png)
+
+#### 2.3创建tabBar
+
+> https://uniapp.dcloud.io/collocation/pages?id=tabbar
 
