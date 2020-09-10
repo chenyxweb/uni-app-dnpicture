@@ -1,0 +1,21 @@
+view,
+text,
+navigator,
+input,
+image,
+swiper,
+swiper-item,
+scroll-view,
+page {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+page{
+  font-size: 28rpx;
+  color: #666;
+}
+image{
+  width: 100%;
+  display: block;
+}

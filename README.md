@@ -194,11 +194,48 @@ vue create -p dcloudio/uni-preset-vue dnpicture
 yarn add node-sass sass-loader
 ```
 
-#### 2.2创建页面
+### 2.2创建页面
 
 ![image-20200910195945532](.\images\image-20200910195945532.png)
 
-#### 2.3创建tabBar
+### 2.3创建tabBar
 
 > https://uniapp.dcloud.io/collocation/pages?id=tabbar
+
+### 2.4字体图标
+
+- 引入
+
+```
+// App.vue
+<style>
+  /*每个页面公共css */
+  /* 引入字体图标 */
+  @import './styles/iconfont.wxss';
+</style>
+
+// 使用
+<text class="iconfont iconvideocamera"></text>
+```
+
+### 2.5 uni-ui的使用
+
+> https://www.npmjs.com/package/@dcloudio/uni-ui#%E6%96%B9%E5%BC%8F%E4%BA%8C%EF%BC%88cli%EF%BC%89
+
+```
+// 安装
+yarn add @dcloudio/uni-ui
+
+// script
+import {uniBadge} from '@dcloudio/uni-ui'
+//import uniBadge from '@dcloudio/uni-ui/lib/uni-badge/uni-badge.vue' //也可使用此方式引入组件
+export default {
+    components: {uniBadge}
+}
+
+// template
+<uni-badge text="1"></uni-badge>
+```
+
+### 2.6 uni-api的使用
 
