@@ -239,3 +239,17 @@ export default {
 
 ### 2.6 uni-api的使用
 
+```
+// 请求示例
+onLoad() {
+    wx.request({
+      url: 'http://157.122.54.189:9088/image/v3/homepage/vertical',
+      success(res) {
+        console.log(res)
+      }
+    })
+
+uni.request({ url: 'http://157.122.54.189:9088/image/v3/homepage/vertical' }).then(res => console.log(res))
+  },
+```
+
