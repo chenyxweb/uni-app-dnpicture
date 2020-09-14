@@ -17,5 +17,5 @@
   /* 引入字体图标 */
   @import './styles/iconfont.wxss';
   /* 引入base样式 */
-  @import './styles/base.wxss'
+  @import './styles/base.wxss';
 </style>

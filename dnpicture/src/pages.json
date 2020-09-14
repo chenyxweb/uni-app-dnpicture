@@ -1,31 +1,31 @@
 {
   "pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
     {
-      "path": "pages/home/index",
+      "path": "pages/Home/index",
       "style": {
         "navigationBarTitleText": "首页"
       }
     },
     {
-      "path": "pages/horizontal/index",
+      "path": "pages/Horizontal/index",
       "style": {
         "navigationBarTitleText": "横屏"
       }
     },
     {
-      "path": "pages/video/index",
+      "path": "pages/Video/index",
       "style": {
         "navigationBarTitleText": "精美视频"
       }
     },
     {
-      "path": "pages/search/index",
+      "path": "pages/Search/index",
       "style": {
         "navigationBarTitleText": "搜索"
       }
     },
     {
-      "path": "pages/mine/index",
+      "path": "pages/Mine/index",
       "style": {
         "navigationBarTitleText": "我的"
       }
@@ -46,31 +46,31 @@
     "borderStyle": "black",
     "list": [
       {
-        "pagePath": "pages/home/index",
+        "pagePath": "pages/Home/index",
         "text": "首页",
         "iconPath": "static/icon/_home.png",
         "selectedIconPath": "static/icon/home.png"
       },
       {
-        "pagePath": "pages/horizontal/index",
+        "pagePath": "pages/Horizontal/index",
         "text": "横屏",
         "iconPath": "static/icon/_img.png",
         "selectedIconPath": "static/icon/img.png"
       },
       {
-        "pagePath": "pages/video/index",
+        "pagePath": "pages/Video/index",
         "text": "精美视频",
         "iconPath": "static/icon/_videocamera.png",
         "selectedIconPath": "static/icon/videocamera.png"
       },
       {
-        "pagePath": "pages/search/index",
+        "pagePath": "pages/Search/index",
         "text": "搜索",
         "iconPath": "static/icon/_search.png",
         "selectedIconPath": "static/icon/search.png"
       },
       {
-        "pagePath": "pages/mine/index",
+        "pagePath": "pages/Mine/index",
         "text": "我的",
         "iconPath": "static/icon/_my.png",
         "selectedIconPath": "static/icon/my.png"

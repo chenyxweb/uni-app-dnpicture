@@ -253,3 +253,11 @@ uni.request({ url: 'http://157.122.54.189:9088/image/v3/homepage/vertical' }).th
   },
 ```
 
+### 2.7 home页面
+
+- 分段器组件(tab栏)
+
+```js
+import { uniSegmentedControl } from '@dcloudio/uni-ui'	
+```
+
