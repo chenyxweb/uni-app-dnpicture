@@ -32,10 +32,10 @@
     }
   ],
   "globalStyle": {
-    "navigationBarTextStyle": "black",
-    "navigationBarTitleText": "uni-app",
-    "navigationBarBackgroundColor": "#F8F8F8",
-    "backgroundColor": "#F8F8F8"
+    "navigationBarTextStyle": "white",
+    "navigationBarTitleText": "dnpicture",
+    "navigationBarBackgroundColor": "#000"
+    // "backgroundColor": "#F8F8F8"
   },
   // 底部tab栏
   "tabBar": {

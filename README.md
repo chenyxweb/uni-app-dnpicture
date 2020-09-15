@@ -186,7 +186,8 @@ updated // 由于数据更改导致的虚拟 DOM 重新渲染和打补丁，在�
 
 ## 2 项目-懂你找图
 
-### 2.1创建项目
+### 2.1 准备工作
+####  1 创建项目
 
 ```
 vue create -p dcloudio/uni-preset-vue dnpicture
@@ -194,15 +195,15 @@ vue create -p dcloudio/uni-preset-vue dnpicture
 yarn add node-sass sass-loader
 ```
 
-### 2.2创建页面
+#### 2 创建页面
 
 ![image-20200910195945532](.\images\image-20200910195945532.png)
 
-### 2.3创建tabBar
+#### 3 创建tabBar
 
 > https://uniapp.dcloud.io/collocation/pages?id=tabbar
 
-### 2.4字体图标
+#### 4 字体图标
 
 - 引入
 
@@ -218,7 +219,7 @@ yarn add node-sass sass-loader
 <text class="iconfont iconvideocamera"></text>
 ```
 
-### 2.5 uni-ui的使用
+#### 5 uni-ui的使用
 
 > https://www.npmjs.com/package/@dcloudio/uni-ui#%E6%96%B9%E5%BC%8F%E4%BA%8C%EF%BC%88cli%EF%BC%89
 
@@ -237,7 +238,7 @@ export default {
 <uni-badge text="1"></uni-badge>
 ```
 
-### 2.6 uni-api的使用
+#### 6 uni-api的使用
 
 ```
 // 请求示例
@@ -253,7 +254,47 @@ uni.request({ url: 'http://157.122.54.189:9088/image/v3/homepage/vertical' }).th
   },
 ```
 
-### 2.7 home页面
+**封装请求,挂载到Vue原型中**
+
+```
+// 封装promise请求
+// 原因 : 微信原生请求不支持promise, uni请求没有加载中状态
+
+const request = params => {
+  // loading
+  uni.showLoading({ title: '正在加载', mask: true })
+
+  return new Promise((resolve, reject) => {
+    wx.request({
+      ...params,
+      success(res) {
+        resolve(res)
+      },
+      fail(err) {
+        reject(err)
+      },
+      complete() {
+        // 关闭loading
+        uni.hideLoading()
+      },
+    })
+  })
+}
+
+export default request
+
+
+
+import request from './utils/request'
+Vue.prototype.request = request
+
+```
+
+#### 7 接口文档
+
+https://www.showdoc.com.cn/414855720281749?page_id=3678621017219602
+
+### 2.2 首页
 
 - 分段器组件(tab栏)
 

@@ -63,7 +63,6 @@ export default {
     }
   },
   onLoad() {
-
   },
   methods: {
     // 点击tab栏
