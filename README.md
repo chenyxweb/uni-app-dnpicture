@@ -310,5 +310,17 @@ import { uniSegmentedControl } from '@dcloudio/uni-ui'
 
 // mode='aspectFill'
 // 缩放模式，保持纵横比缩放图片，只保证图片的短边能完全显示出来。也就是说，图片通常只在水平或垂直方向是完整的，另一个方向将会发生截取。
+
+// image 的集中显示模式 ???
+```
+
+- scroll-view 组件
+
+```
+@scrolltolower 触底事件
+
+<scroll-view scroll-y @scrolltolower="scrolltolower" class="scroll-view"></scroll-view>
+
+// 注意 : 必须设置scroll-y 纵向滚动; 必须设置容器固定高度; tab栏不算入视图高度中
 ```
 
