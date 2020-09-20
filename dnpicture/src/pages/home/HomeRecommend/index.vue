@@ -64,13 +64,16 @@ export default {
   mounted() {
     console.log('mounted')
     this.getList()
+    // 设置页面标题
+    uni.setNavigationBarTitle({ title: '推荐' })
+
   },
   methods: {
     // 触底事件
     scrolltolower() {
       console.log('到底了')
 
-      if (!this.hasMore) return uni.showToast({ title: '没有数据了', icon: null })
+      if (!this.hasMore) return uni.showToast({ title: '没有数据了', icon: 'none' })
 
       // 修改skip
       this.param.skip = this.param.skip + this.param.limit

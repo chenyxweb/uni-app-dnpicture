@@ -5,7 +5,11 @@
 
 <script>
 export default {
-  name: "HomeNew"
+  name: "HomeNew",
+  mounted() {
+    // 设置页面标题
+    uni.setNavigationBarTitle({ title: '最新' })
+  }
 }
 </script>
 

@@ -44,7 +44,7 @@ import HomeRecommend from './HomeRecommend'
 import HomeCategory from './HomeCategory'
 import HomeNew from './HomeNew'
 import HomeAlbum from './HomeAlbum'
-console.log({ [HomeAlbum.name]: HomeAlbum })
+// console.log({ [HomeAlbum.name]: HomeAlbum })
 
 export default {
   components: {
@@ -59,7 +59,7 @@ export default {
   data() {
     return {
       items: ['推荐', '分类', '最新', '专辑'], // 选项数组
-      current: 0, //当前选中的tab索引值
+      current: 3, //当前选中的tab索引值
     }
   },
   onLoad() {

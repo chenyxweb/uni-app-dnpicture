@@ -296,6 +296,8 @@ https://www.showdoc.com.cn/414855720281749?page_id=3678621017219602
 
 ### 2.2 首页
 
+#### 推荐
+
 - 分段器组件(tab栏)
 
 ```js
@@ -322,5 +324,21 @@ import { uniSegmentedControl } from '@dcloudio/uni-ui'
 <scroll-view scroll-y @scrolltolower="scrolltolower" class="scroll-view"></scroll-view>
 
 // 注意 : 必须设置scroll-y 纵向滚动; 必须设置容器固定高度; tab栏不算入视图高度中
+```
+
+#### 分类
+
+#### 最新
+
+#### 专辑
+
+- 功能分析
+
+```
+1. 修改页面标题 : uni.setNavigationBarTitle
+2. swiper组件
+	swiper高度不会被内容撑开,需要手动设置
+3. scroll-view组件实现分页
+4. 点击跳转到专辑详情页
 ```
 

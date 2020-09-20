@@ -5,7 +5,11 @@
 
 <script>
 export default {
-  name: "HomeCategory"
+  name: "HomeCategory",
+  mounted() {
+    // 设置页面标题
+    uni.setNavigationBarTitle({ title: '分类' })
+  }
 }
 </script>
 
