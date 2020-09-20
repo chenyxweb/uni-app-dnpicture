@@ -9,7 +9,7 @@
     </swiper>
     <!-- 图片展示 -->
     <view class="album-list">
-      <view class="list-item" v-for="item in albumList" :key="item.id">
+      <view class="list-item" v-for="item in albumList" :key="item.id" @click="handleClick(item.id)">
         <view class="left">
           <image :src="item.cover" mode="aspectFill"></image>
         </view>
@@ -72,6 +72,11 @@ export default {
       this.param = { ...this.param, skip: this.param.skip + this.param.limit }
       // 请求数据
       this.getList()
+    },
+    // 点击专辑列表项
+    handleClick(id) {
+      console.log('click')
+      uni.navigateTo({ url: `/pages/AlbumInfo/index?id=${id}` })
     }
   }
 }

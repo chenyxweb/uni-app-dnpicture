@@ -7,6 +7,12 @@
       }
     },
     {
+      "path": "pages/AlbumInfo/index",
+      "style": {
+        "navigationBarTitleText": "专辑详情"
+      }
+    },
+    {
       "path": "pages/Horizontal/index",
       "style": {
         "navigationBarTitleText": "横屏"

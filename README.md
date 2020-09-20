@@ -340,5 +340,6 @@ import { uniSegmentedControl } from '@dcloudio/uni-ui'
 	swiper高度不会被内容撑开,需要手动设置
 3. scroll-view组件实现分页
 4. 点击跳转到专辑详情页
+	
 ```
 
