@@ -343,6 +343,15 @@ import { uniSegmentedControl } from '@dcloudio/uni-ui'
 	swiper高度不会被内容撑开,需要手动设置
 3. scroll-view组件实现分页
 4. 点击跳转到专辑详情页
-	
+	navigator组件 或
+	uni.navigateTo方法
+```
+
+- 专辑详情
+
+```
+onReachBottom 和 scroll-view 区别?
+onReachBottom 整个页面滚动时使用
+scroll-view 页面某区域滚动时使用
 ```
 

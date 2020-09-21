@@ -2,10 +2,7 @@
 <template>
   <view class="album-info">
     <view class="image">
-      <image
-        :src="album.cover"
-        mode="widthFix"
-      ></image>
+      <image :src="album.cover" mode="widthFix"></image>
       <view class="btn">关注专辑</view>
       <view class="name">{{album.name}}</view>
     </view>
@@ -19,12 +16,7 @@
         <view class="desc">{{album.desc}}</view>
       </view>
       <view class="content">
-        <image
-          :src="item.thumb + item.rule.replace('$<Height>','240')"
-          v-for="item in wallpaper"
-          :key="item.id"
-          mode="aspectFill"
-        ></image>
+        <image :src="item.thumb + item.rule.replace('$<Height>','240')" v-for="item in wallpaper" :key="item.id" mode="aspectFill"></image>
       </view>
     </view>
   </view>
@@ -38,6 +30,8 @@ export default {
       id: -1,//专辑id
       album: {}, // 专辑信息
       wallpaper: [], // 展示图片
+      param: { limit: 30, order: 'new', skip: 0, first: 1 },
+      hasMore: true, // 是否有更多数据
     }
   },
 
@@ -52,14 +46,38 @@ export default {
   },
   methods: {
     queryAlbumInfo() {
-      this.request({ url: `http://157.122.54.189:9088/image/v1/wallpaper/album/${this.id}/wallpaper`, data: { limit: 30, order: 'new', skip: 0, first: 1 } }).then(res => {
+      this.request({ url: `http://157.122.54.189:9088/image/v1/wallpaper/album/${this.id}/wallpaper`, data: this.param }).then(res => {
         console.log(res)
         const { album, wallpaper } = res?.res
-        this.album = album || {}
-        this.wallpaper = wallpaper || []
+
+        if (this.param.first === 1) {
+          // 第一次请求
+          this.album = album || {}
+        }
+
+        if (wallpaper.length === 0) {
+          // 没有数据了
+          this.hasMore = false
+        }
+
+        if (!this.hasMore && this.param.first !== 1) return uni.showToast({ title: '没有更多数据了~', icon: 'none' })
+
+        this.wallpaper = [...this.wallpaper, ...wallpaper || []]
 
       })
     }
+  },
+  onReachBottom() {
+    // 触底事件
+    console.log('到底了~')
+
+    // 修改请求入参
+    this.param = { ...this.param, skip: this.param.skip + this.param.limit, first: 0 }
+    // 加载数据
+
+    if (!this.hasMore) return uni.showToast({ title: '没有更多数据了~', icon: 'none' })
+
+    this.queryAlbumInfo()
   }
 
 }
