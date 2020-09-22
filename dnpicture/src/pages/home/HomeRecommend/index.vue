@@ -1,13 +1,27 @@
 // 推荐
 <template>
-  <view class="recommend" v-if="recommendList.length">
-
-    <scroll-view scroll-y @scrolltolower="scrolltolower" class="scroll-view">
+  <view
+    class="recommend"
+    v-if="recommendList.length"
+  >
+    <scroll-view
+      scroll-y
+      @scrolltolower="scrolltolower"
+      class="scroll-view"
+    >
       <!-- 推荐列表 -->
       <view class="recommend-list">
-        <view class="recommend-item" v-for="item in recommendList" :key="item.id">
-          <image :src="item.thumb" mode="widthFix"></image>
-        </view>
+        <navigator
+          class="recommend-item"
+          v-for="item in recommendList"
+          :key="item.id"
+          :url="`/pages/AlbumInfo/index?id=${item.target}`"
+        >
+          <image
+            :src="item.thumb"
+            mode="widthFix"
+          ></image>
+        </navigator>
       </view>
 
       <!-- “月份” 列表 -->
@@ -27,7 +41,22 @@
 
         <!-- 内容 -->
         <view class="content">
-          <image :src="item.img + item.rule.replace('$<Height>',360)" v-for="item in monthInfo.items" :key="item.id" mode="aspectFill"></image>
+          <view
+            class="image-wrapper"
+            v-for="(item,index) in monthInfo.items"
+            :key="item.id"
+          >
+            <go-detail
+              :list="monthInfo.items"
+              :index="index"
+            >
+              <image
+                :src="item.img + item.rule.replace('$<Height>',360)"
+                mode="aspectFill"
+              ></image>
+            </go-detail>
+          </view>
+
         </view>
       </view>
 
@@ -35,7 +64,21 @@
       <view class="hot">
         <view class="title">热门</view>
         <view class="content">
-          <image :src="item.thumb" v-for="item in hot" :key="item.id" mode="widthFix"></image>
+          <view
+            class="image-wrapper"
+            v-for="(item,index) in hot"
+            :key="item.id"
+          >
+            <go-detail
+              :list="hot"
+              :index="index"
+            >
+              <image
+                :src="item.thumb"
+                mode="widthFix"
+              ></image>
+            </go-detail>
+          </view>
         </view>
       </view>
     </scroll-view>
@@ -45,9 +88,13 @@
 
 <script>
 import moment from 'moment'
+import GoDetail from '../../../components/GoDetail/index.vue'
 
 export default {
   name: "HomeRecommend",
+  components: {
+    GoDetail
+  },
   data() {
     return {
       recommendList: [], // 推荐列表
@@ -163,7 +210,7 @@ export default {
         display: flex;
         flex-wrap: wrap;
 
-        image {
+        .image-wrapper {
           width: 33.33%;
         }
       }
@@ -179,7 +226,7 @@ export default {
         display: flex;
         flex-wrap: wrap;
 
-        image {
+        .image-wrapper {
           width: 33.33%;
         }
       }

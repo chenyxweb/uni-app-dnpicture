@@ -73,10 +73,8 @@ export default {
 
     // 修改请求入参
     this.param = { ...this.param, skip: this.param.skip + this.param.limit, first: 0 }
-    // 加载数据
-
     if (!this.hasMore) return uni.showToast({ title: '没有更多数据了~', icon: 'none' })
-
+    // 加载数据
     this.queryAlbumInfo()
   }
 
@@ -124,6 +122,10 @@ export default {
         image {
           width: 50rpx;
           height: 50rpx;
+        }
+
+        .name{
+          padding-left: 10rpx;
         }
       }
     }

@@ -355,3 +355,29 @@ onReachBottom 整个页面滚动时使用
 scroll-view 页面某区域滚动时使用
 ```
 
+### 2.3 图片详情页
+- 封装超链接组件 goDetail.vue
+
+```
+// 点击要跳转到图片详情页的image标签都被此组件包裹
+// list 当前图片所在的图片数组,当前图片的索引
+<go-detail :list="list" :index="index"></go-detail>
+
+// 点击该组件,将图片数组存储到全局,并且跳转到图片详情页
+App.vue中定义globalData
+获取或设置 : getApp().globalData
+```
+
+
+- 图片详情页组件imgDetail.vue
+
+
+
+
+
+
+
+## 99 总结
+
+- 微信开发者工具 左下角可以切换页面参数, 页面路径等, 查看页面相关信息
+

@@ -1,17 +1,38 @@
 // 专辑
 <template>
-  <scroll-view class="album" scroll-y @scrolltolower="scrolltolower">
+  <scroll-view
+    class="album"
+    scroll-y
+    @scrolltolower="scrolltolower"
+  >
     <!-- 轮播 -->
-    <swiper indicator-dots autoplay :interval="2000" circular class="swiper">
-      <swiper-item v-for="item in swiper" :key="item.id">
+    <swiper
+      indicator-dots
+      autoplay
+      :interval="2000"
+      circular
+      class="swiper"
+    >
+      <swiper-item
+        v-for="item in swiper"
+        :key="item.id"
+      >
         <image :src="item.thumb"></image>
       </swiper-item>
     </swiper>
     <!-- 图片展示 -->
     <view class="album-list">
-      <view class="list-item" v-for="item in albumList" :key="item.id" @click="handleClick(item.id)">
+      <view
+        class="list-item"
+        v-for="item in albumList"
+        :key="item.id"
+        @click="handleClick(item.id)"
+      >
         <view class="left">
-          <image :src="item.cover" mode="aspectFill"></image>
+          <image
+            :src="item.cover"
+            mode="aspectFill"
+          ></image>
         </view>
         <view class="right">
           <view class="title">{{item.name}}</view>
@@ -95,9 +116,12 @@ export default {
   }
 
   .album-list {
+    padding: 0 10rpx;
+
     .list-item {
       display: flex;
-      padding: 10rpx;
+      padding: 10rpx 0;
+      border-bottom: 1px solid #ccc;
 
       .left {
         flex: 1;

@@ -35,6 +35,13 @@
       "style": {
         "navigationBarTitleText": "我的"
       }
+    },
+    // 图片详情组件
+    {
+      "path": "pages/ImgDetail/index",
+      "style": {
+        "navigationBarTitleText": "图片详情"
+      }
     }
   ],
   "globalStyle": {
