@@ -18,11 +18,13 @@
     </view>
 
     <!-- 图片 -->
-    <image
-      :src="imgDetail.thumb + imgDetail.rule.replace('$<Height>',360)"
-      v-if="imgDetail.thumb"
-      mode="widthFix"
-    ></image>
+    <swiper-action @swiper="handleSwiper">
+      <image
+        :src="imgDetail.thumb"
+        v-if="imgDetail.thumb"
+        mode="widthFix"
+      ></image>
+    </swiper-action>
 
     <!-- 点赞&收藏 -->
     <view class="fav">
@@ -37,8 +39,13 @@
 
 <script>
 import moment from 'moment'
+import SwiperAction from '../../components/SwiperAction'
 
 export default {
+  components: {
+    SwiperAction
+  },
+
   data() {
     return {
       imgDetail: {}, // 当前显示图片信息
@@ -47,13 +54,36 @@ export default {
   },
 
   mounted() {
-    console.log(getApp().globalData)
+    // console.log(getApp().globalData)
     // 获取全局数据
     // list 图片列表
     // index 当前图片索引
     const { list, index } = getApp().globalData
     this.imgDetail = { ...list[index] }
     console.log(this.imgDetail)
+
+    // 获取图片评论信息
+    this.getPicComment(this.imgDetail.id)
+  },
+  methods: {
+    // 获取图片评论信息
+    getPicComment(id) {
+      console.log('id', id)
+      this.request({
+        url: `http://157.122.54.189:9088/image/v2/wallpaper/wallpaper/${id}/comment`
+      }).then(res => {
+        // 接口挂了
+        // console.log(res)
+      })
+
+    },
+
+    // 处理滑动
+    handleSwiper(direction) {
+      console.log('direction: ', direction);
+
+
+    }
   },
 
   // 过滤器
@@ -105,6 +135,7 @@ export default {
     display: flex;
     font-size: 32rpx;
     border-bottom: 1px solid #ccc;
+    border-top: 1px solid #ccc;
     text-align: center;
 
     .like {
