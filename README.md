@@ -371,6 +371,22 @@ App.vue中定义globalData
 
 - 图片详情页组件imgDetail.vue
 
+```
+// 时间格式化momnet.js
+fromNow()
+moment("20111031", "YYYYMMDD").fromNow(); // 9 年前
+moment("20120620", "YYYYMMDD").fromNow(); // 8 年前
+moment().startOf('day').fromNow();        // 18 小时前
+moment().endOf('day').fromNow();          // 6 小时内
+moment().startOf('hour').fromNow();       // 34 分钟前
+
+// main.js 
+// moment 本地化
+import moment from 'moment'
+moment.locale('zh-cn')
+
+```
+
 
 
 

@@ -2,7 +2,10 @@
 <template>
   <view class="album-info">
     <view class="image">
-      <image :src="album.cover" mode="widthFix"></image>
+      <image
+        :src="album.cover"
+        mode="widthFix"
+      ></image>
       <view class="btn">关注专辑</view>
       <view class="name">{{album.name}}</view>
     </view>
@@ -16,14 +19,34 @@
         <view class="desc">{{album.desc}}</view>
       </view>
       <view class="content">
-        <image :src="item.thumb + item.rule.replace('$<Height>','240')" v-for="item in wallpaper" :key="item.id" mode="aspectFill"></image>
+        <view
+          class="image-wrapper"
+          v-for="(item,index) in wallpaper"
+          :key="item.id"
+        >
+          <go-detail
+            :list="wallpaper"
+            :index="index"
+          >
+            <image
+              :src="item.thumb + item.rule.replace('$<Height>','240')"
+              mode="aspectFill"
+            ></image>
+          </go-detail>
+        </view>
       </view>
     </view>
   </view>
 </template>
 
 <script>
+import GoDetail from '../../components/GoDetail/index.vue'
+
 export default {
+
+  components: {
+    GoDetail
+  },
 
   data() {
     return {
@@ -39,6 +62,7 @@ export default {
     console.log(query)
 
     this.id = query.id
+
 
     // 获取详情信息
     this.queryAlbumInfo()
@@ -124,7 +148,7 @@ export default {
           height: 50rpx;
         }
 
-        .name{
+        .name {
           padding-left: 10rpx;
         }
       }
@@ -134,10 +158,13 @@ export default {
       display: flex;
       flex-wrap: wrap;
 
-      image {
+      .image-wrapper {
         width: 33.33%;
         border: 3rpx solid #fff;
-        height: 160rpx;
+
+        image {
+          height: 160rpx;
+        }
       }
     }
   }
