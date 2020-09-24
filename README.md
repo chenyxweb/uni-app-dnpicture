@@ -302,6 +302,21 @@ https://www.showdoc.com.cn/414855720281749?page_id=3678621017219602
 
 ```js
 import { uniSegmentedControl } from '@dcloudio/uni-ui'	
+
+<uni-segmented-control
+    :values="items.map(v=>v.title)"
+    :current="current"
+    @clickItem="onClickItem"
+    style-type="text"
+    active-color="#d4237a"
+></uni-segmented-control>
+
+      items: 
+        { title: "推荐",... }, // 可以放其他数据
+        { title: "分类" },
+        { title: "最新" },
+        { title: "专辑" } 
+      ],
 ```
 
 - image
@@ -334,13 +349,13 @@ import { uniSegmentedControl } from '@dcloudio/uni-ui'
 - 首页分类
 
 ```
-
+HomeCategory
 ```
 
 - 图片分类
 
 ```
-
+ImgCategory
 ```
 
 #### 最新
@@ -538,10 +553,37 @@ saveImageToPhotosAlbum // 保存图片到系统相册
 
 ```
 
+### 2.4 精美视频
+
+- 首页
+
+```
+// 分段器
+// scroll-view
+
+// 前四个公用一个组件
+VideoMain
+// 最后一个视频分类用一个组件
+VideoCategory
+```
+
+- 播放页
+
+```
+// 视频播放
+```
+
 
 
 ## 99 总结
 
 - 微信开发者工具 左下角可以切换页面参数, 页面路径等, 查看页面相关信息
 - 微信开发工具内查看页面数据: 调试器->AppData
+- 修改底部tabbar
+
+```
+uni.setTabBarItem(OBJECT)
+```
+
+
 

@@ -2,6 +2,12 @@
   "pages": [
     //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
     {
+      "path": "pages/Video/index",
+      "style": {
+        "navigationBarTitleText": "精美视频"
+      }
+    },
+    {
       "path": "pages/Home/index",
       "style": {
         "navigationBarTitleText": "首页"
@@ -17,12 +23,6 @@
       "path": "pages/Horizontal/index",
       "style": {
         "navigationBarTitleText": "横屏"
-      }
-    },
-    {
-      "path": "pages/Video/index",
-      "style": {
-        "navigationBarTitleText": "精美视频"
       }
     },
     {
