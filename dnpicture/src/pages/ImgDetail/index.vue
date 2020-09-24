@@ -49,7 +49,8 @@ export default {
   data() {
     return {
       imgDetail: {}, // 当前显示图片信息
-
+      list: [], // 图片数组
+      index: 0, // 当前图片索引
     }
   },
 
@@ -59,8 +60,11 @@ export default {
     // list 图片列表
     // index 当前图片索引
     const { list, index } = getApp().globalData
-    this.imgDetail = { ...list[index] }
-    console.log(this.imgDetail)
+    this.imgDetail = list[index]
+    this.list = list
+    this.index = index
+
+    console.log(this.imgDetail, this.list, this.index)
 
     // 获取图片评论信息
     this.getPicComment(this.imgDetail.id)
@@ -82,6 +86,15 @@ export default {
     handleSwiper(direction) {
       console.log('direction: ', direction);
 
+      if (direction === 'left' && this.index < this.list.length - 1) {
+        // 左滑++
+        this.index++
+      } else if (direction === 'right' && this.index > 0) {
+        // 右滑--
+        this.index--
+      }
+
+      this.imgDetail = this.list[this.index]
 
     }
   },
