@@ -33,7 +33,10 @@
     </view>
 
     <!-- 下载 -->
-    <view class="download">下载图片</view>
+    <view
+      class="download"
+      @click="handleDownload"
+    >下载图片</view>
   </view>
 </template>
 
@@ -96,6 +99,37 @@ export default {
 
       this.imgDetail = this.list[this.index]
 
+    },
+
+    // 下载图片
+    handleDownload() {
+      console.log(this.imgDetail)
+      const url = this.imgDetail.thumb
+
+
+      // 1. 将图片缓存到app
+      uni.downloadFile({
+        url,
+        success(res) {
+          console.log(res)
+          const { tempFilePath } = res
+
+          // 2. 下载到本地
+          uni.saveImageToPhotosAlbum({
+            filePath: tempFilePath,
+            success() {
+              uni.showToast({ title: '图片下载成功' })
+            },
+            fail() {
+              uni.showToast({ title: '图片下载失败', icon: 'none' })
+            }
+          })
+
+        },
+        fail() {
+          uni.showToast({ title: '图片缓存失败', icon: 'none' })
+        }
+      })
     }
   },
 

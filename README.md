@@ -356,7 +356,7 @@ scroll-view 页面某区域滚动时使用
 ```
 
 ### 2.3 图片详情页
-####  封装超链接组件  
+####  2.3.1 封装超链接组件  
 
 > 组件功能: 组件包裹图片, 接收图片列表和当前图片的索引,点击组件后,将数据存入globalData中,并且跳转到图片详情页
 
@@ -417,7 +417,7 @@ export default {
 </style>
 ```
 
-####  图片详情页组件
+####  2.3.2 图片详情页组件
 
 ```
 // imgDetail.vue
@@ -437,7 +437,7 @@ moment.locale('zh-cn')
 
 ```
 
-####  **封装手势滑动组件**
+####  **2.3.3 封装手势滑动组件**
 
 > 组件功能: 组件包裹图片, 滑动组件时, 通过触发父组件事件向外暴露用户滑动的方向
 
@@ -491,7 +491,7 @@ export default {
       // 滑动距离>10
       if (Math.abs(this.endX - this.startX) < 10) return
 
-      // 角度小于 +- 30°  |x|> 根号 3*|y|
+      // 角度小于 +- 30°  |x|> 根号 3*|y| , 防止上下滑动页面产生切换图片的效果
       if (Math.abs(this.endX - this.startX) <= Math.abs(this.startY - this.endY) * Math.sqrt(3)) return
 
       let direction = (this.endX - this.startX) > 0 ? 'right' : 'left'
@@ -511,7 +511,20 @@ export default {
 </style>
 ```
 
+#### 2.3.4 下载图片
 
+```
+两个aip
+
+downloadFile  // 下载文件资源到本地，客户端直接发起一个 HTTP GET 请求，返回文件的本地临时路径(临时缓存)
+
+saveImageToPhotosAlbum // 保存图片到系统相册
+```
+
+```
+// 先将图片缓存到app, 再下载到系统相册
+
+```
 
 
 
