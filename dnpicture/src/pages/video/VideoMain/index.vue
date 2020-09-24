@@ -5,10 +5,12 @@
       <view
         class="video-item"
         v-for="item in list"
+        @click="handleClick(item)"
       >
         <image
           :src="item.img"
           mode="aspectFill"
+          lazy-load
         ></image>
       </view>
     </view>
@@ -28,6 +30,15 @@ export default {
   watch: {
     list() {
       console.log(this.list)
+    }
+  },
+  methods: {
+    // 点击图片
+    handleClick(item) {
+      // 保存当前点击项数据到appData
+      getApp().globalData.video = item
+      // 跳转到视频播放页
+      uni.navigateTo({ url: '/pages/VideoPlay/index' })
     }
   }
 

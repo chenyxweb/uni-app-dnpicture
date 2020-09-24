@@ -14,7 +14,8 @@ export default {
     // 图片列表缓存
     list: [],
     // 当前图片index
-    index: -1
+    index: -1,
+    video: {}, // 视频数据
   }
 }
 </script>

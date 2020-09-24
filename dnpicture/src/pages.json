@@ -50,6 +50,13 @@
       "style": {
         "navigationBarTitleText": "图片分类"
       }
+    },
+    // 视频播放页面
+    {
+      "path": "pages/VideoPlay/index",
+      "style": {
+        "navigationBarTitleText": "视频播放"
+      }
     }
   ],
   "globalStyle": {

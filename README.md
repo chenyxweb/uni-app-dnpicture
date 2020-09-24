@@ -555,7 +555,7 @@ saveImageToPhotosAlbum // 保存图片到系统相册
 
 ### 2.4 精美视频
 
-- 首页
+- 首页Video
 
 ```
 // 分段器
@@ -567,10 +567,77 @@ VideoMain
 VideoCategory
 ```
 
-- 播放页
+- 播放页 VideoPlay
 
 ```
 // 视频播放
+
+1.页面渲染
+缓存上个页面数据,进行页面渲染
+
+2.播放视频
+<video
+    :src="video.video"
+    :poster="video.img"
+    objectFit="fill" //当视频大小与 video 容器大小不一致时，视频的表现形式 fill：填充
+></video>
+
+3.开关声音
+控制muted的true或false
+
+4.分享
+隐藏按钮
+<button open-type="share">转发</button>
+<view class="iconfont iconzhuanfa share-btn">
+    <!-- 分享功能按钮 -->
+    <button open-type="share">按钮</button>
+</view>
+
+.share-btn {
+      position: relative;
+
+      button {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        left: 0;
+        top: 0;
+        opacity: 0;
+      }
+    }
+
+
+5.下载视频
+async download() {
+      uni.showLoading({ title: '视频下载中...' })
+
+      // uni.downloadFile({
+      //   url: this.video.video,
+      //   success(res) {
+      //     console.log(res)
+      //     uni.hideLoading()
+      //     const tempFilePath = res.tempFilePath
+
+      //     uni.saveVideoToPhotosAlbum({
+      //       filePath: tempFilePath,
+      //       success() {
+      //         uni.showToast({ title: '视频保存成功' })
+      //       }
+      //     })
+      //   },
+      // })
+
+      // 缓存到app
+      const res = await uni.downloadFile({ url: this.video.video })
+      console.log(res)
+      uni.hideLoading()
+      const tempFilePath = res[1].tempFilePath
+
+      // 下载到相册
+      await uni.saveVideoToPhotosAlbum({ filePath: tempFilePath })
+      uni.showToast({ title: '视频保存成功' })
+
+    }
 ```
 
 
@@ -585,5 +652,25 @@ VideoCategory
 uni.setTabBarItem(OBJECT)
 ```
 
+- 相对定位的父元素不要是text
 
+```
+<view class="iconfont iconzhuanfa share-btn">
+    <!-- 分享功能按钮 -->
+    <button open-type="share">按钮</button>
+  </view>
+  
+.share-btn {
+  position: relative;
+
+  button {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    opacity: 0;
+  }
+}
+```
 
