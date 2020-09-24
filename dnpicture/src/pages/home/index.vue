@@ -59,7 +59,7 @@ export default {
   data() {
     return {
       items: ['推荐', '分类', '最新', '专辑'], // 选项数组
-      current: 0, //当前选中的tab索引值
+      current: 1, // 当前选中的tab索引值
     }
   },
   onLoad() {
@@ -92,6 +92,7 @@ export default {
   }
 
   .content {
+    height: calc(100vh - 72rpx);
   }
 }
 </style>

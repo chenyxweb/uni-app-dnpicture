@@ -212,6 +212,7 @@ export default {
 
         .image-wrapper {
           width: 33.33%;
+          border: 3rpx solid #fff;
         }
       }
     }
@@ -228,6 +229,7 @@ export default {
 
         .image-wrapper {
           width: 33.33%;
+          border: 3rpx solid #fff;
         }
       }
     }

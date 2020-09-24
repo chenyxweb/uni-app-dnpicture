@@ -313,10 +313,10 @@ import { uniSegmentedControl } from '@dcloudio/uni-ui'
 // mode='aspectFill'
 // 缩放模式，保持纵横比缩放图片，只保证图片的短边能完全显示出来。也就是说，图片通常只在水平或垂直方向是完整的，另一个方向将会发生截取。
 
-// image 的几种显示模式 常用:widthFix , aspectFill
-// 技巧  直接给图片定死宽高rpx
-// 不定高大图片 widthFix 高度自适应
-// aspectFill 让展示时, 短了的边完全展示出来, 会有裁切效果
+// image 的几种显示模式 常用 : widthFix , aspectFill
+// 技巧  
+// 不定高大图片使用 widthFix 高度自适应
+// 直接给图片定死宽高rpx使用 aspectFill 让展示时, 短了的边完全展示出来, 会有裁切效果
 ```
 
 - scroll-view 组件
@@ -330,6 +330,18 @@ import { uniSegmentedControl } from '@dcloudio/uni-ui'
 ```
 
 #### 分类
+
+- 首页分类
+
+```
+
+```
+
+- 图片分类
+
+```
+
+```
 
 #### 最新
 

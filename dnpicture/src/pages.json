@@ -1,5 +1,6 @@
 {
-  "pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+  "pages": [
+    //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
     {
       "path": "pages/Home/index",
       "style": {
@@ -36,11 +37,18 @@
         "navigationBarTitleText": "我的"
       }
     },
-    // 图片详情组件
+    // 图片详情
     {
       "path": "pages/ImgDetail/index",
       "style": {
         "navigationBarTitleText": "图片详情"
+      }
+    },
+    // 图片分类页
+    {
+      "path": "pages/ImgCategory/index",
+      "style": {
+        "navigationBarTitleText": "图片分类"
       }
     }
   ],

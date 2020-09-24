@@ -89,6 +89,10 @@ export default {
     handleSwiper(direction) {
       console.log('direction: ', direction);
 
+      if (direction === 'right' && this.index === 0) return uni.showToast({ title: '已经是第一张了~', icon: 'none' })
+
+      if (direction === 'left' && this.index === this.list.length - 1) return uni.showToast({ title: '已经是最后一张了~', icon: 'none' })
+
       if (direction === 'left' && this.index < this.list.length - 1) {
         // 左滑++
         this.index++
@@ -96,6 +100,8 @@ export default {
         // 右滑--
         this.index--
       }
+
+
 
       this.imgDetail = this.list[this.index]
 
